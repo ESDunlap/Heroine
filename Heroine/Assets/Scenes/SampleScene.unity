@@ -260,11 +260,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14d622e9601cd5428f03b17ba8292a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroineController
-  walkingSpeed: 2
-  runningSpeed: 4
-  fallingSpeed: 8
-  jumpHeight: 8
+  duckingSpeed: 10
+  walkingSpeed: 20
+  runningSpeed: 40
+  fallingSpeed: 20
+  diveForce: 100
+  jumpHeight: 10
+  landingTime: 0.5
+  diveTime: 0.5
   rb: {fileID: 266620000}
+  heroine: {fileID: 266619997}
+  currentSpeed: 0
 --- !u!54 &266620000
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -290,7 +296,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &330585543
 GameObject:

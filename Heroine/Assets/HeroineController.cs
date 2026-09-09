@@ -3,11 +3,18 @@ using System;
 
 public class HeroineController : MonoBehaviour
 {
+    public float duckingSpeed = 1.0f;
     public float walkingSpeed = 2.0f;
     public float runningSpeed = 4.0f;
     public float fallingSpeed = 8.0f;
+    public float diveForce = 20f;
     public float jumpHeight = 8.0f;
+    public float landingTime = 0.5f;
+    public float diveTime = 0.5f;
     public Rigidbody rb;
+    public Transform heroine;
+
+    public float currentSpeed;
 
     private IHeroineState _standingState, _sprintingState, _duckingState, _jumpingState, _fallingState, _divingState, _landingState;
 
@@ -25,6 +32,19 @@ public class HeroineController : MonoBehaviour
         _landingState = gameObject.AddComponent<HeroineLandingState>();
 
         _heroineStateContext.Transition(_standingState);
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            Debug.Log("test");
+            rb.AddForce(Vector3.right * currentSpeed * Time.deltaTime, ForceMode.Impulse);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            rb.AddForce(Vector3.left * currentSpeed * Time.deltaTime, ForceMode.Impulse);
+        }
     }
 
     public void Standing()

@@ -10,7 +10,8 @@ public class HeroineStandingState : MonoBehaviour, IHeroineState
     {
         if (!_heroineController)
             _heroineController = heroineController;
-        Debug.Log("In standingstate");
+        _heroineController.heroine.localScale = new Vector3(1, 1, 1);
+        _heroineController.currentSpeed = _heroineController.walkingSpeed;
     }
 
     void Update()
@@ -19,8 +20,18 @@ public class HeroineStandingState : MonoBehaviour, IHeroineState
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                _heroineController.rb.AddForce(Vector3.up * _heroineController.jumpHeight, ForceMode.Impulse);
                 _heroineController.Jumping();
+                _heroineController = null;
+            }
+            else if (Input.GetKey(KeyCode.LeftShift))
+            {
+                _heroineController.Sprinting();
+                _heroineController = null;
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                _heroineController.Ducking();
+                _heroineController = null;
             }
         }
     }

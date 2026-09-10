@@ -8,9 +8,8 @@ public class HeroineDivingState : MonoBehaviour, IHeroineState
     {
         if (!_heroineController)
             _heroineController = heroineController;
-        _heroineController.rb.AddForce(Vector3.right * _heroineController.diveForce);
-        Debug.Log(Mathf.Sign(_heroineController.rb.linearVelocity.x));
-        Debug.Log("Diving");
+        _heroineController.rb.AddForce(Vector3.right * Mathf.Sign(_heroineController.rb.linearVelocity.x) * _heroineController.diveForce);
+        Debug.Log("Diving ");
     }
 
     void Update()

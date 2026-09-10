@@ -18,7 +18,6 @@ public class HeroineJumpingState : MonoBehaviour, IHeroineState
         if (_heroineController)
         {
             timer += Time.deltaTime;
-            Debug.Log("Jumping");
             Ray ray = new Ray(transform.position, Vector3.down);
             if (Physics.Raycast(ray, 1.5f) && _heroineController.rb.linearVelocity.y < 0)
             {

@@ -243,7 +243,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266619993}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a60d4981ad2ba694aa4310a903bd93c3, type: 3}
   m_Name: 
@@ -264,10 +264,10 @@ MonoBehaviour:
   walkingSpeed: 20
   runningSpeed: 40
   fallingSpeed: 20
-  diveForce: 100
+  diveForce: 200
   jumpHeight: 10
   landingTime: 0.5
-  diveTime: 0.5
+  diveTime: 0.25
   rb: {fileID: 266620000}
   heroine: {fileID: 266619997}
   currentSpeed: 0
